@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+       	<%@ include file="head.jsp" %>
+	 <title>Insert Office</title>
     </head>
     <body>
         <form action="insertOfficedb.jsp" method="post">
@@ -47,6 +47,6 @@
             </table>
         </form>
          
- 
+         
     </body>
 </html>
