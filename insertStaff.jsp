@@ -33,7 +33,7 @@
                     </tr>
                     <tr>
                         <td><label>Birth Date</label></td>
-                        <td><input type="datetime" name="birthDate"/></td>
+                        <td><input type="datetime" name="birthDate" placeholder="MM/dd/yyyy HH:mm:ss AM" /></td>
                     </tr>
                     <tr>
                         <td><input type="submit" value="Save" /></td> 

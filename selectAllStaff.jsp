@@ -14,7 +14,8 @@
 	<%@ include file="datasource.jsp"%>
 
 	<sql:query dataSource="${dbsource}" var="result">
-SELECT * from cray1.Staff
+SELECT emplid, firstname, lastname, phonenumber, 
+TO_CHAR(birthDate, 'MM/DD/YYYY:HH24:MI:SS') as bday from cray1.Staff
 </sql:query>
 <h1>Staff</h1>
 <a href="insertStaff.jsp" >Insert Staff</a>
@@ -31,6 +32,7 @@ SELECT * from cray1.Staff
 			<th>Birth Date</th>
 		</tr>
 		<c:forEach var="row" items="${result.rows}">
+			 
 			<tr>
 				<td></td>
 				<td></td>
@@ -38,7 +40,7 @@ SELECT * from cray1.Staff
 				<td><c:out value="${row.firstname}" /></td>
 				<td><c:out value="${row.lastname}" /></td>
 				<td><c:out value="${row.phonenumber}" /></td>
-				<td><c:out value="${row.birthdate}" /></td> 
+				<td><c:out value="${row.bday}" /></td> 
 			</tr>
 		</c:forEach>
 	</table>
