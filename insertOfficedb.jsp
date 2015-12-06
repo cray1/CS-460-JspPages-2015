@@ -25,7 +25,7 @@
             <font size="5" color='green'> Congratulations ! Data inserted
             successfully.</font>
  
-            <c:redirect url="insertOffice.jsp" >
+            <c:redirect url="SelectAllOffices.jsp" >
             </c:redirect>
         </c:if> 
  

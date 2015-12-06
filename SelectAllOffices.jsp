@@ -16,12 +16,14 @@
 	<sql:query dataSource="${dbsource}" var="result">
 SELECT * from cray1.Office
 </sql:query>
+<h1>Offices</h1>
+<a href="insertOffice.jsp" >Insert Office</a>
 
 
 	<table border="1" width="100%">
 		<tr>
-			<th>delete</th>
 			<th>update</th>
+			<th>delete</th>
 			<th>Office Id</th>
 			<th>Office Name</th>
 			<th>Address</th>
@@ -51,6 +53,8 @@ SELECT * from cray1.Office
 			</tr>
 		</c:forEach>
 	</table>
+	
+	
 
 
 </body>

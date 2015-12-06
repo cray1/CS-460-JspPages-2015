@@ -42,8 +42,7 @@
 					<td><input type="text" name="zipCode" value="${param.zipCode}" /></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="Save" /></td>
-					<td><input type="reset" value="reset" /></td>
+					<td><input type="submit" value="Save" /></td> 
 				</tr>
 			</tbody>
 		</table>
