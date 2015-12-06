@@ -17,5 +17,8 @@
   DELETE FROM cray1.office WHERE officeId = ?
   <sql:param value="${param.officeId}" />
 </sql:update>
+
+ <c:redirect url="SelectAllOffices.jsp" >
+            </c:redirect>
 </body>
 </html>

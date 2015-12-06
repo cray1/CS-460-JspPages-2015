@@ -6,7 +6,7 @@
   </head>
   <body> 
     <a href="SelectAllOffices.jsp" target="blank">Select all Offices</a> <br>
-    
+    <a href="selectAllStaff.jsp" target="blank">Select all Staff</a> <br>
   </body>
 </html>
  
