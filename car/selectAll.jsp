@@ -6,7 +6,7 @@
 <html>
 <head>
 <%@ include file="../head.jsp"%>
-<title>Select all Job Titles</title>
+<title>Select all Cars</title>
 </head>
 <body>
 
@@ -16,25 +16,27 @@
 	<%@ include file="../datasource.jsp"%>
 
 	<sql:query dataSource="${dbsource}" var="result">
-SELECT * from cray1.JobTitle
+SELECT * from cray1.Car
 </sql:query>
-	<h1>Job Titles</h1>
-	<a href="/jobTitle/insertJobTitle.jsp">Insert Job Title</a>
+	<h1>Cars</h1>
+	<a href="/car/insert.jsp">Insert Car</a>
 
 
 	<table border="1" width="100%">
 		<tr>
 			<th>Delete</th>
-			<th>JobTitleId</th>
-			<th>Job Title</th> 
+			<th>CarId</th>
+			<th>Description</th>
+			<th>Registration Number</th>
 		</tr>
 		<c:forEach var="row" items="${result.rows}">
 			<tr>
 				<td><a
-					href="/jobTitle/deleteJobTitle.jsp?jobtitleid=<c:out value="${row.jobtitleid}" />">
+					href="/car/delete.jsp?carid=<c:out value="${row.carid}" />">
 						delete</a></td>
-				<td><c:out value="${row.jobtitleid}" /></td>
-				<td><c:out value="${row.title}" /></td> 
+				<td><c:out value="${row.carid}" /></td>
+				<td><c:out value="${row.description}" /></td>
+				<td><c:out value="${row.registrationnumber}" /></td>
 			</tr>
 		</c:forEach>
 	</table>
