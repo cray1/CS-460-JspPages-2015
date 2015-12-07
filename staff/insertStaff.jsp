@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-       	<%@ include file="head.jsp" %>
-	 <title>Insert Office</title>
+       	<%@ include file="../head.jsp" %>
+	 <title>Insert Staff</title>
     </head>
     <body>
-        <form action="insertStaffdb.jsp" method="post">
-            <table border="0" cellspacing="2" cellpadding="5">
+        <form action="/staff/insertStaffdb.jsp" method="post">
+            <table>
                 <thead>
                     <tr>
                         <th colspan="2">Add Staff</th>

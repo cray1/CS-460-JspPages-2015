@@ -5,22 +5,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<%@ include file="head.jsp"%>
+<%@ include file="../head.jsp"%>
 <title>Select all staff</title>
 </head>
 <body>
 
 	<h4>
-		<a href="index.jsp">Home</a>
+		<a href="/index.jsp">Home</a>
 	</h4>
-	<%@ include file="datasource.jsp"%>
+	<%@ include file="../datasource.jsp"%>
 
 	<sql:query dataSource="${dbsource}" var="result">
 SELECT emplid, firstname, lastname, phonenumber, 
 TO_CHAR(birthDate, 'MM/DD/YYYY:HH24:MI:SS') as bday from cray1.Staff
 </sql:query>
+
 	<h1>Staff</h1>
-	<a href="insertStaff.jsp">Insert Staff</a>
+	<a href="/staff/insertStaff.jsp">Insert Staff</a>
 
 
 	<table border="1" width="100%">
@@ -36,7 +37,7 @@ TO_CHAR(birthDate, 'MM/DD/YYYY:HH24:MI:SS') as bday from cray1.Staff
 
 			<tr>
 				<td><a
-					href="deleteStaff.jsp?emplId=<c:out value="${row.emplid}" />">
+					href="/staff/deleteStaff.jsp?emplId=<c:out value="${row.emplid}" />">
 						delete</a></td>
 				<td><c:out value="${row.emplid}" /></td>
 				<td><c:out value="${row.firstname}" /></td>

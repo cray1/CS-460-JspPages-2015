@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<%@ include file="datasource.jsp"%>
+	<%@ include file="../datasource.jsp"%>
 
 	<%
 		DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss aaa");
@@ -27,7 +27,7 @@
 		<sql:param value="<%=birthDate%>" />
 	</sql:update>
 	<c:if test="${result>=1}">
-		<c:redirect url="selectAllStaff.jsp">
+		<c:redirect url="/staff/selectAllStaff.jsp">
 		</c:redirect>
 	</c:if>
 

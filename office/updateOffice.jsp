@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="head.jsp"%>
+<%@ include file="../head.jsp"%>
 <title>Update Office</title>
 </head>
 <body>
-	<form action="updateOfficedb.jsp" method="post">
-		<table border="0" cellspacing="2" cellpadding="5">
+	<form action="/office/updateOfficedb.jsp" method="post">
+		<table>
 			<thead>
 				<tr>
 					<th colspan="2">Update Office</th>
@@ -42,7 +42,7 @@
 					<td><input type="text" name="zipCode" value="${param.zipCode}" /></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="Save" /></td> 
+					<td><input type="submit" value="Save" /></td>
 				</tr>
 			</tbody>
 		</table>
