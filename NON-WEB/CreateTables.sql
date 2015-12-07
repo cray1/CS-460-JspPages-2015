@@ -1,3 +1,5 @@
+ALTER SESSION SET current_schema = cray1; 
+
 CREATE TABLE office 
   ( 
      officeid   INT PRIMARY KEY, 
