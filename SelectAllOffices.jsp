@@ -10,7 +10,7 @@
 </head>
 <body>
 
-
+    <h4><a href="index.jsp">Home</a></h4>
 	<%@ include file="datasource.jsp"%>
 
 	<sql:query dataSource="${dbsource}" var="result">

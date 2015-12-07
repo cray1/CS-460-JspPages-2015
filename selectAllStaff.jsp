@@ -10,20 +10,21 @@
 </head>
 <body>
 
-
+	<h4>
+		<a href="index.jsp">Home</a>
+	</h4>
 	<%@ include file="datasource.jsp"%>
 
 	<sql:query dataSource="${dbsource}" var="result">
 SELECT emplid, firstname, lastname, phonenumber, 
 TO_CHAR(birthDate, 'MM/DD/YYYY:HH24:MI:SS') as bday from cray1.Staff
 </sql:query>
-<h1>Staff</h1>
-<a href="insertStaff.jsp" >Insert Staff</a>
+	<h1>Staff</h1>
+	<a href="insertStaff.jsp">Insert Staff</a>
 
 
 	<table border="1" width="100%">
 		<tr>
-			<th>update</th>
 			<th>delete</th>
 			<th>Emplid</th>
 			<th>First Name</th>
@@ -32,20 +33,21 @@ TO_CHAR(birthDate, 'MM/DD/YYYY:HH24:MI:SS') as bday from cray1.Staff
 			<th>Birth Date</th>
 		</tr>
 		<c:forEach var="row" items="${result.rows}">
-			 
+
 			<tr>
-				<td></td>
-				<td></td>
+				<td><a
+					href="deleteStaff.jsp?emplId=<c:out value="${row.emplid}" />">
+						delete</a></td>
 				<td><c:out value="${row.emplid}" /></td>
 				<td><c:out value="${row.firstname}" /></td>
 				<td><c:out value="${row.lastname}" /></td>
 				<td><c:out value="${row.phonenumber}" /></td>
-				<td><c:out value="${row.bday}" /></td> 
+				<td><c:out value="${row.bday}" /></td>
 			</tr>
 		</c:forEach>
 	</table>
-	
-	
+
+
 
 
 </body>

@@ -12,7 +12,7 @@
 
 
 <%@ include file="datasource.jsp" %> 
- 
+
 <sql:update dataSource="${dbsource}" var="count">
   DELETE FROM cray1.office WHERE officeId = ?
   <sql:param value="${param.officeId}" />
