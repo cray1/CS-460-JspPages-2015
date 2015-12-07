@@ -1,3 +1,4 @@
+ALTER SESSION SET current_schema = cray1; 
 DROP TABLE MaintenanceLog;
 DROP TABLE WrittenTest;
 DROP TABLE DrivingTest;
