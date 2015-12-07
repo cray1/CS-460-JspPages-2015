@@ -1,0 +1,12 @@
+DROP TABLE MaintenanceLog;
+DROP TABLE WrittenTest;
+DROP TABLE DrivingTest;
+DROP TABLE Lesson;
+DROP TABLE Interview;
+DROP TABLE ProvisionalLicense;
+DROP TABLE Client;
+DROP TABLE Position;
+DROP TABLE Car;
+DROP TABLE Staff;
+DROP TABLE Office;
+DROP TABLE JobTitle;
