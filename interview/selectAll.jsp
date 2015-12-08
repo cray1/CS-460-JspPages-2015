@@ -6,7 +6,7 @@
 <html>
 <head>
 <%@ include file="../head.jsp"%>
-<title>Select all Clients</title>
+<title>Select all Interviews</title>
 </head>
 <body>
 
@@ -16,37 +16,29 @@
 	<%@ include file="../datasource.jsp"%>
 
 	<sql:query dataSource="${dbsource}" var="result">
-SELECT * from cray1.Client
+SELECT * from cray1.Interview
 </sql:query>
-	<h1>Clients</h1>
-	<a href="/client/insert.jsp">Insert Client</a>
-
+	<h1>Interviews</h1>
+	<a href="/interview/insert.jsp">Insert Interview</a>
+ 
 
 	<table border="1" width="100%">
 		<tr>
 			<th>Delete</th>
+			<th>PositionId</th>
 			<th>ClientId</th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Phone Number</th>
-			<th>Email</th>
-			<th>Birthdate</th>
-			<th>Sex</th>
-			<th>OfficeId</th>
+			<th>Interview Notes</th>
+			<th>Interview Date</th>
 		</tr>
 		<c:forEach var="row" items="${result.rows}">
 			<tr>
 				<td><a
-					href="/client/delete.jsp?clientid=<c:out value="${row.clientid}" />">
+					href="/interview/delete.jsp?positionid=<c:out value="${row.positionid}"/>&clientid=<c:out value="${row.clientid}"/>">
 						delete</a></td>
+				<td><c:out value="${row.positionid}" /></td>
 				<td><c:out value="${row.clientid}" /></td>
-				<td><c:out value="${row.firstname}" /></td>
-				<td><c:out value="${row.lastname}" /></td>
-				<td><c:out value="${row.phonenumber}" /></td>
-				<td><c:out value="${row.email}" /></td>
-				<td><c:out value="${row.birthdate}" /></td>
-				<td><c:out value="${row.sex}" /></td>
-				<td><c:out value="${row.officeid}" /></td>
+				<td><c:out value="${row.interviewnotes}" /></td>
+				<td><c:out value="${row.interviewdate}" /></td>
 			</tr>
 		</c:forEach>
 	</table>

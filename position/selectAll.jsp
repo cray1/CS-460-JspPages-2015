@@ -42,7 +42,7 @@
 					<sql:param value="${row.jobtitleid}" />
 					</sql:query> <c:forEach var="_jobTitle" items="${jobTitle.rows}">
 						<c:out value="${_jobTitle.title }" />
-					</c:forEach></td>
+					</c:forEach>
 				<td><sql:query dataSource="${dbsource}" var="Staff">
 					SELECT firstname, lastname from cray1.Staff where emplid = ?
 					<sql:param value="${row.emplid}" />

@@ -6,7 +6,7 @@
 <html>
 <head>
 <%@ include file="../head.jsp"%>
-<title>Select all Driving Test</title>
+<title>Select all Written Tests</title>
 </head>
 <body>
 
@@ -15,19 +15,19 @@
 	</h4>
 	<%@ include file="../datasource.jsp"%>
 
-	 
+ 
 	<sql:query dataSource="${dbsource}" var="result">
-		SELECT drivingtestid, clientid, passed,  
-		TO_CHAR(testdate, 'MM/DD/YYYY:HH24:MI:SS') as tdate from cray1.drivingtest
+		SELECT writtentestid, clientid, passed,  
+		TO_CHAR(testdate, 'MM/DD/YYYY:HH24:MI:SS') as tdate from cray1.writtentest
 	</sql:query>
-	<h1>Driving Test</h1>
-	<a href="/drivingtest/insert.jsp">Insert Driving Test</a>
+	<h1>written Test</h1>
+	<a href="/writtentest/insert.jsp">Insert written Test</a>
 
 
 	<table border="1" width="100%">
 		<tr>
 			<th>Delete</th>
-			<th>DrivingTestId</th>
+			<th>WrittenTestId</th>
 			<th>Client</th>
 			<th>Passed</th>
 			<th>Test Date</th> 
@@ -35,9 +35,9 @@
 		<c:forEach var="row" items="${result.rows}">
 			<tr>
 				<td><a
-					href="/drivingtest/delete.jsp?drivingtestid=<c:out value="${row.drivingtestid}" />">
+					href="/writtentest/delete.jsp?writtentestid=<c:out value="${row.writtentestid}" />">
 						delete</a></td>
-				<td><c:out value="${row.drivingtestid}" /></td>
+				<td><c:out value="${row.writtentestid}" /></td>
 				<td><sql:query dataSource="${dbsource}" var="Client">
 					SELECT * from cray1.client where clientid = ?
 					<sql:param value="${row.clientid}" />
