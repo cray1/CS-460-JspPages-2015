@@ -8,10 +8,11 @@
 <body>
 	<%@ include file="../datasource.jsp"%>
 	<sql:update dataSource="${dbsource}" var="result">
-            INSERT INTO cray1.Car (carid, description, registrationnumber) VALUES (?,?,?)
-            <sql:param value="${param.carid}" />
-			<sql:param value="${param.description}" /> 
-			<sql:param value="${param.registrationnumber}" /> 
+            INSERT INTO cray1.drivingtest (drivingtestid, clientid, passed, testdate) VALUES (?,?,?,?)
+            <sql:param value="${param.drivingtestid}" />
+			<sql:param value="${param.clientid}" /> 
+			<sql:param value="${param.passed}" /> 
+			<sql:param value="${param.testdate}" />
 	</sql:update>
 	<c:if test="${result>=1}">
 		<c:redirect url="/car/selectAll.jsp">
