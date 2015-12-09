@@ -1,0 +1,43 @@
+/*=====================================================================================================
+ |   Assignment:  Program #4
+ |       Author:  Nicole Attea (neattea@email.arizona.edu)
+ |                Chris Ray (cray1@email.arizona.edu
+ |
+ |       Course:  CSC 460 (Database Design), Fall 2015
+ |   Instructor:  L. McCann
+ | Sect. Leader:  Shuo Yang
+ |     Due Date:  December 8th, at the beginning of class
+ |
+ +-----------------------------------------------------------------------------------------------------
+ |
+ |  Record selection:  There exists 12 jsp pages for the function of selection (1 page for each table).
+ |                     The selection function implements the SELECT tool of sql to display the table
+ |                     head names of each table and all of the contents of the table provided through insertion.
+ |
+ |  Record insertion:  There exists 12 jsp pages for the function of insertion (1 page for each table).
+ |                     The insertion function implements the INSERT tool of sql to properly insert a record
+ |                     of specific types into the desired table. A user may insert a new record into the table
+ |                     by completing a table specific form through the web interface.
+ |                
+ |   Record deletion:  There exists 12 jsp pages for the function of deletion (1 page for each table).
+ |                     The deletion function implements the DELETE tool of sql to properly delete a record
+ |                     with a specified id from a given table. A user may delete a record from the table 
+ |                     by pressing the “delete” link in the specific table on the web interface.
+ |
+ |     Record update:  There exists 1 jsp page for the function of update (Office table). The update function
+ |                     implements the UPDATE tool of sql to properly update the specific contents of a record
+ |                     from a given table. A user may update a record from the table by pressing the “update”
+ |                     link in that table on the web interface and completing the form with the new,
+ |                     updated contents.
+ |
+ |      Record query:  There exists 5 jsp pages for the function of queries (1 page for each query).
+ |                     The query function implements many different sql tools to perform complex
+ |                     analyses of multiple tables and their pertaining contents. The 5 record queries
+ |                     included in the web interface are:
+ |                            1. The names and telephone numbers of the Managers of each office.
+ |                            2. The full address of all offices in Glasgow.
+ |                            3. The total number of female clients.
+ |                            4. The cars and progress notes taken in lessons longer than 10 miles.
+ |                            5. The total number of clients in each city.
+ |
+ *=================================================================================================*/
