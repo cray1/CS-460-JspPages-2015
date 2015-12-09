@@ -8,25 +8,27 @@
  | Sect. Leader:  Shuo Yang
  |     Due Date:  December 8th, at the beginning of class
  |
- |     Language:  Java, html, jsp, jstl
+ |     Languages:  Java, html, jsp, jstl
  |     Packages:  java.io
  |                java.util
  |                java.sql
  |
- |  Compile/Run:  move ROOT directory into existing tomcat directory
- |                in web browser go to: (where XXXXX is port number of your choice)
+ |  Compile/Run:  move contents of ROOT directory into an existing tomcat ROOT directory
+ |                in web browser go to: (where XXXXX is port number of your tomcat server chosen in $HOME/tomcat/conf/server.xml)
  |
  |                lectura.cs.arizona.edu:XXXXX
  |
  +-----------------------------------------------------------------------------------------------------
  |
  |  Description:  The purpose of this program is to embed the SQL language within the Java
- |                programming language in order to access and manipulate database queries
+ |                programming language and JSP + JSTL in order to access and manipulate database queries
  |                from a web based interface. Through the tomcat server and oracle database
  |                system, jsp pages implement the structure and functionality of the database
  |                of “The EasyDrive School of Motoring” case study.
  |                
- |        Input:  The user can provide data input for all 12 tables and their respective keys.
+ |        Input:  The user can provide data input (insert, delete, (update for Office table only)) for all 12 tables and their 
+ |                respective keys.
+ |
  |                The input is received through web based forms. The tables included are:
  |                       Office           WrittenTest
  |                       Staff            Client
@@ -34,6 +36,8 @@
  |                       Car              MaintenanceLog
  |                       Position         Interview
  |                       DrivingTest      Lesson
+ |                
+ |                The input gui is navigated to by going to one of the "Select all" pages and clicking "insert", "delete", or "update"  |                (update functionality only exists on the office table).
  |
  |       Output:  There are 12 “select all” pages that prints a table of all the contents of each
  |                database table and 5 queries. The queries included are: 
