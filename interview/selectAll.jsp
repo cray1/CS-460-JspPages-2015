@@ -20,13 +20,13 @@ SELECT * from cray1.Interview
 </sql:query>
 	<h1>Interviews</h1>
 	<a href="/interview/insert.jsp">Insert Interview</a>
- 
+
 
 	<table border="1" width="100%">
 		<tr>
 			<th>Delete</th>
 			<th>PositionId</th>
-			<th>ClientId</th>
+			<th>Client</th>
 			<th>Interview Notes</th>
 			<th>Interview Date</th>
 		</tr>
@@ -36,7 +36,13 @@ SELECT * from cray1.Interview
 					href="/interview/delete.jsp?positionid=<c:out value="${row.positionid}"/>&clientid=<c:out value="${row.clientid}"/>">
 						delete</a></td>
 				<td><c:out value="${row.positionid}" /></td>
-				<td><c:out value="${row.clientid}" /></td>
+				<td><sql:query dataSource="${dbsource}" var="Client">
+					SELECT * from cray1.client where clientid = ?
+					<sql:param value="${row.clientid}" />
+					</sql:query> <c:forEach var="_client" items="${Client.rows}">
+						<c:out value="${_client.firstname }" />&nbsp;<c:out
+							value="${_client.lastname }" />
+					</c:forEach></td>
 				<td><c:out value="${row.interviewnotes}" /></td>
 				<td><c:out value="${row.interviewdate}" /></td>
 			</tr>

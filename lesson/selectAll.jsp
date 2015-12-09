@@ -16,7 +16,11 @@
 	<%@ include file="../datasource.jsp"%>
 
 	<sql:query dataSource="${dbsource}" var="result">
-SELECT * from cray1.Lesson
+		SELECT lessonid, clientid, 
+		TO_CHAR(startdate, 'MM/DD/YYYY:HH24:MI:SS') as startd, 
+		TO_CHAR(stopdate, 'MM/DD/YYYY:HH24:MI:SS') as stopd, 
+		positionid, carid, mileageused, progressnotes
+		from cray1.Lesson
 </sql:query>
 	<h1>Lessons</h1>
 	<a href="/lesson/insert.jsp">Insert Lesson</a>
@@ -26,11 +30,11 @@ SELECT * from cray1.Lesson
 		<tr>
 			<th>Delete</th>
 			<th>LessonId</th>
-			<th>ClientId</th>
+			<th>Client</th>
 			<th>Start Date</th>
 			<th>Stop Date</th>
-			<th>PositionId</th>
-			<th>CarId</th>
+			<th>Position</th>
+			<th>Car</th>
 			<th>Mileage Used</th>
 			<th>Progress Notes</th>
 		</tr>
@@ -40,11 +44,33 @@ SELECT * from cray1.Lesson
 					href="/lesson/delete.jsp?lessonid=<c:out value="${row.lessonid}" />">
 						delete</a></td>
 				<td><c:out value="${row.lessonid}" /></td>
-				<td><c:out value="${row.clientid}" /></td>
-				<td><c:out value="${row.startdate}" /></td>
-				<td><c:out value="${row.stopdate}" /></td>
-				<td><c:out value="${row.positionid}" /></td>
-				<td><c:out value="${row.carid}" /></td>
+				<td><sql:query dataSource="${dbsource}" var="Client">
+					SELECT * from cray1.client where clientid = ?
+					<sql:param value="${row.clientid}" />
+					</sql:query> <c:forEach var="_client" items="${Client.rows}">
+						<c:out value="${_client.firstname }" />&nbsp;<c:out
+							value="${_client.lastname }" />
+					</c:forEach></td>
+				<td><c:out value="${row.startd}" /></td>
+				<td><c:out value="${row.stopd}" /></td>
+				<td><sql:query dataSource="${dbsource}" var="Position">
+					select title, firstname, lastname from cray1.position
+					inner join cray1.jobtitle on position.jobtitleid = jobtitle.jobtitleid
+					inner join cray1.staff on staff.emplid = position.emplid
+					where positionid = ?
+					<sql:param value="${row.positionid}" />
+					</sql:query> <c:forEach var="_pos" items="${Position.rows}">
+						<c:out value="${_pos.title }" />,&nbsp;<c:out
+							value="${_pos.firstname }" />&nbsp;<c:out
+							value="${_pos.lastname }" />
+					</c:forEach></td>
+				<td><sql:query dataSource="${dbsource}" var="Car">
+					SELECT * from cray1.car where carid = ?
+					<sql:param value="${row.carid}" />
+					</sql:query> <c:forEach var="_car" items="${Car.rows}">
+						<c:out value="${_car.description }" />&nbsp;<c:out
+							value="${_car.registrationnumber }" />
+					</c:forEach></td>
 				<td><c:out value="${row.mileageused}" /></td>
 				<td><c:out value="${row.progressnotes}" /></td>
 			</tr>

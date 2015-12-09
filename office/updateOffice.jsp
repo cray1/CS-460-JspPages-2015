@@ -16,8 +16,8 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><label>OfficeId</label></td>
-					<td><input type="number" name="officeId" min="1" max="9999"
+					<td><!--   <label>OfficeId</label> --></td>
+					<td><input type="number" name="officeId" min="1" max="9999" style="visibility:hidden"
 						value="${param.officeId}" /></td>
 				</tr>
 				<tr>

@@ -32,7 +32,7 @@ SELECT * from cray1.Client
 			<th>Email</th>
 			<th>Birthdate</th>
 			<th>Sex</th>
-			<th>OfficeId</th>
+			<th>Office</th>
 		</tr>
 		<c:forEach var="row" items="${result.rows}">
 			<tr>
@@ -46,7 +46,13 @@ SELECT * from cray1.Client
 				<td><c:out value="${row.email}" /></td>
 				<td><c:out value="${row.birthdate}" /></td>
 				<td><c:out value="${row.sex}" /></td>
-				<td><c:out value="${row.officeid}" /></td>
+				<td><sql:query dataSource="${dbsource}" var="Office">
+					SELECT officename, state from cray1.Office where officeid = ?
+					<sql:param value="${row.officeid}" />
+					</sql:query> <c:forEach var="_Office" items="${Office.rows}">
+						<c:out value="${_Office.officename }" />&nbsp;,&nbsp;<c:out
+							value="${_Office.state }" />
+					</c:forEach></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -16,8 +16,8 @@
 	<%@ include file="../datasource.jsp"%>
 
 	<sql:query dataSource="${dbsource}" var="result">
-SELECT * from cray1.Provisionallicense
-</sql:query>
+		SELECT * from cray1.Provisionallicense
+	</sql:query>
 	<h1>Provisional Licenses</h1>
 	<a href="/provisionallicense/insert.jsp">Insert Provisional License</a>
 
@@ -26,7 +26,7 @@ SELECT * from cray1.Provisionallicense
 		<tr>
 			<th>Delete</th>
 			<th>LicenseId</th>
-			<th>ClientId</th>
+			<th>Client</th>
 			<th>ExpireDate</th>
 		</tr>
 		<c:forEach var="row" items="${result.rows}">
@@ -35,7 +35,13 @@ SELECT * from cray1.Provisionallicense
 					href="/provisionallicense/delete.jsp?licenseid=<c:out value="${row.licenseid}" />">
 						delete</a></td>
 				<td><c:out value="${row.licenseid}" /></td>
-				<td><c:out value="${row.clientid}" /></td>
+				<td><sql:query dataSource="${dbsource}" var="Client">
+					SELECT * from cray1.client where clientid = ?
+					<sql:param value="${row.clientid}" />
+					</sql:query> <c:forEach var="_client" items="${Client.rows}">
+						<c:out value="${_client.firstname }" />&nbsp;<c:out value="${_client.lastname }" />
+					</c:forEach>
+				</td> 
 				<td><c:out value="${row.expiredate}" /></td>
 			</tr>
 		</c:forEach>

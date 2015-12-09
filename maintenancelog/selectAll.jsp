@@ -30,6 +30,7 @@
 			<th>MaintenanceLogId</th>
 			<th>Car</th>
 			<th>Faults Found</th>
+			<th>Maintenance Notes</th>
 			<th>Maintenance Date</th> 
 		</tr>
 		<c:forEach var="row" items="${result.rows}">
@@ -46,6 +47,7 @@
 					</c:forEach>
 				</td> 
 				<td><c:out value="${row.faultsfound}" /></td>
+				<td><c:out value="${row.maintenancenotes}" /></td>
 				<td><c:out value="${row.mdate}" /></td>
 			</tr>
 		</c:forEach>

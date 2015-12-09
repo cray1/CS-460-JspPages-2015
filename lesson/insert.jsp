@@ -16,7 +16,10 @@
 	</sql:query>
 	
 	<sql:query dataSource="${dbsource}" var="Position">
-		SELECT * from cray1.Position
+	    select positionid, title, firstname, lastname from cray1.position
+		inner join cray1.jobtitle on position.jobtitleid = jobtitle.jobtitleid
+		inner join cray1.staff on staff.emplid = position.emplid 
+		where jobtitle.title like '%Instructor%'
 	</sql:query>
 	
 	<sql:query dataSource="${dbsource}" var="Car">
@@ -57,11 +60,11 @@
                     </tr>
                     
                     <tr>
-					<td><label>PositionId</label></td>
+					<td><label>Position</label></td>
 					<td><select name="positionid">
-							<c:forEach var="position" items="${Position.rows}">
+							<c:forEach var="_position" items="${Position.rows}">
 								<option value="${position.positionid}">
-									${position.positionid}</option>
+									${_position.title}, ${_position.firstname} ${_position.lastname}</option>
 							</c:forEach>
 					</select></td>
 					</tr>
