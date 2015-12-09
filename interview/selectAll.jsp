@@ -25,7 +25,7 @@ SELECT * from cray1.Interview
 	<table border="1" width="100%">
 		<tr>
 			<th>Delete</th>
-			<th>PositionId</th>
+			<th>Position</th>
 			<th>Client</th>
 			<th>Interview Notes</th>
 			<th>Interview Date</th>
@@ -35,7 +35,17 @@ SELECT * from cray1.Interview
 				<td><a
 					href="/interview/delete.jsp?positionid=<c:out value="${row.positionid}"/>&clientid=<c:out value="${row.clientid}"/>">
 						delete</a></td>
-				<td><c:out value="${row.positionid}" /></td>
+				<td><sql:query dataSource="${dbsource}" var="Position">
+					select title, firstname, lastname from cray1.position
+					inner join cray1.jobtitle on position.jobtitleid = jobtitle.jobtitleid
+					inner join cray1.staff on staff.emplid = position.emplid
+					where positionid = ?
+					<sql:param value="${row.positionid}" />
+					</sql:query> <c:forEach var="_pos" items="${Position.rows}">
+						<c:out value="${_pos.title }" />,&nbsp;<c:out
+							value="${_pos.firstname }" />&nbsp;<c:out
+							value="${_pos.lastname }" />
+					</c:forEach></td>
 				<td><sql:query dataSource="${dbsource}" var="Client">
 					SELECT * from cray1.client where clientid = ?
 					<sql:param value="${row.clientid}" />
