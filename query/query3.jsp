@@ -1,32 +1,35 @@
-<%@page import="java.text.SimpleDateFormat"%>
-<%@ page import="java.io.*,java.util.*,java.sql.*, java.text.*"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Insert Client</title>
+<%@ include file="../head.jsp"%>
+<title>Query 3</title>
 </head>
 <body>
+
+	<h4>
+		<a href="../index.jsp">Home</a>
+	</h4>
 	<%@ include file="../datasource.jsp"%>
-	<%
-		DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss aaa");
-		java.util.Date date_util = formatter.parse(request.getParameter("birthDate"));
-		java.sql.Timestamp birthDate = new java.sql.Timestamp(date_util.getTime());
-	%>
-	<sql:update dataSource="${dbsource}" var="result">
-            INSERT INTO cray1.Client (clientid, firstname, lastname, phonenumber, email, birthdate, sex, officeid) VALUES (?,?,?,?,?,?,?,?)
-            <sql:param value="${param.clientid}" />
-			<sql:param value="${param.firstname}" /> 
-			<sql:param value="${param.lastname}" /> 
-			<sql:param value="${param.phonenumber}" />
-			<sql:param value="${param.email}" /> 
-			<sql:param value="<%=birthDate%>" />
-			<sql:param value="${param.sex}" /> 
-			<sql:param value="${param.officeid}" /> 
-	</sql:update>
-	<c:if test="${result>=1}">
-		<c:redirect url="/client/selectAll.jsp">
-		</c:redirect>
-	</c:if>
+
+	<sql:query dataSource="${dbsource}" var="result">
+	SELECT COUNT(*) AS female FROM cray1.Client WHERE sex='F'
+	</sql:query>
+	<h1>The total number of female clients</h1>
+
+	<table border="1" width="100%">
+		<tr>
+			<th>Female Clients</th>
+		</tr>
+		<c:forEach var="row" items="${result.rows}">
+			<tr>
+				<td><c:out value="${row.female}" /></td>
+			</tr>
+		</c:forEach>
+	</table>
+
 </body>
 </html>
