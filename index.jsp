@@ -6,7 +6,7 @@
   </head>
   <body> 
   <h2>The EasyDrive School of Motoring</h2>
-    <a href="/office/SelectAllOffices.jsp" target="blank">Select all Offices</a> <br>
+    <a href="/office/selectAllOffices.jsp" target="blank">Select all Offices</a> <br>
     <a href="/staff/selectAllStaff.jsp" target="blank">Select all Staff</a> <br>
     <a href="/jobTitle/selectAllJobTitles.jsp" target="blank">Select all Job Titles</a> <br>
     <a href="/car/selectAll.jsp" target="blank">Select all Cars</a> <br>
